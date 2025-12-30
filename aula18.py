@@ -4,7 +4,7 @@
 condicao1 = False
 condicao2 = False
 condicao3 = True
-condicao4 = True
+condicao4 = False
 
 if condicao1:
     print('Código para condição 1')
