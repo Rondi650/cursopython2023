@@ -1,67 +1,68 @@
+import os
+os.system('cls')
+
 """
 Faça um programa que peça ao usuário para digitar um número inteiro,
 informe se este número é par ou ímpar. Caso o usuário não digite um número
 inteiro, informe que não é um número inteiro.
 """
-# entrada = input('Digite um número: ')
 
-# if entrada.isdigit():
-#     entrada_int = int(entrada)
-#     par_impar = entrada_int % 2 == 0
-#     par_impar_texto = 'ímpar'
+numero = input('Digite um numero inteiro: ')
 
-#     if par_impar:
-#         par_impar_texto = 'par'
+try:
+    numero_int = int(numero)
+    if numero_int % 2 == 0:
+        print(f'\nEsse numero {numero_int} e par\n')
+    else:
+        print(f'\nEsse numero {numero_int} e impar\n')
+except Exception as e:
+    print(f'\nFavor digitar um numero inteiro. \nErro: {e}\n')
 
-#     print(f'O número {entrada_int} é {par_impar_texto}')
-# else:
-#     print('Você não digitou um número inteiro')
+print('-' * 50, '\n')
 
-# try:
-#     entrada_int = float(entrada)
-#     par_impar = entrada_int % 2 == 0
-#     par_impar_texto = 'ímpar'
-
-#     if par_impar:
-#         par_impar_texto = 'par'
-
-#     print(f'O número {entrada_int} é {par_impar_texto}')
-# except:
-#     print('Você não digitou um número inteiro')
 """
 Faça um programa que pergunte a hora ao usuário e, baseando-se no horário 
 descrito, exiba a saudação apropriada. Ex. 
 Bom dia 0-11, Boa tarde 12-17 e Boa noite 18-23.
 """
-# entrada = input('Digite a hora em números inteiros: ')
 
-# try:
-#     hora = int(entrada)
+hora = input('Informe a hora: ')
 
-#     if hora >= 0 and hora <= 11:
-#         print('Bom dia')
-#     elif hora >= 12 and hora <= 17:
-#         print('Bom tarde')
-#     elif hora >= 18 and hora <= 23:
-#         print('Bom noite')
-#     else:
-#         print('Não conheço essa hora')
-# except:
-#     print('Por favor, digite apenas números inteiros')
+try:
+    hora_int = int(hora)
+    
+    if hora_int >= 0 and hora_int <= 11:
+        print('\nBom dia\n')
+    elif hora_int >= 12 and hora_int <= 17:
+        print('\nBoa tarde\n')
+    elif hora_int >= 17 and hora_int <= 23:
+        print('\nBoa noite\n')
+    else:
+        print('Digitar hora valida, numero inteiro de 0 a 23')
+except Exception as e:
+    print(f'\nFavor digitar um numero inteiro. \nErro: {e}\n')
+
+print('-' * 50, '\n')
+
 """
 Faça um programa que peça o primeiro nome do usuário. Se o nome tiver 4 letras ou 
 menos escreva "Seu nome é curto"; se tiver entre 5 e 6 letras, escreva 
 "Seu nome é normal"; maior que 6 escreva "Seu nome é muito grande". 
 """
-nome = input('Digite seu nome: ')
-tamanho_nome = len(nome)
 
-if tamanho_nome > 1:
-    if tamanho_nome <= 4:
-        print('Seu nome é curto')
-    elif tamanho_nome >= 5 and tamanho_nome <= 6:
-        print('Seu nome é normal')
+nome = input('Digite seu nome: ')
+
+try: # nao precisava de try except aqui
+    nome_str = str(nome)
+    print(nome_str)
+    tamanho = len(nome_str)
+    if tamanho >=2 and tamanho <= 4:
+        print('\nSeu nome é curto\n')
+    elif tamanho >= 5 and tamanho <= 6:
+        print('\nSeu nome é normal\n')
+    elif tamanho > 6 and tamanho <= 20:
+        print('\nSeu nome é muito grande\n')
     else:
-        print('Seu nome é muito grande')
-else:
-    print('Digite mais de uma letra.')
+        print('\nO nome deve ter em 2 e 20 caracteres\n')
+except Exception as e:
+    print(f'\nO nome aceita apenas textos.\nErro{e}')
