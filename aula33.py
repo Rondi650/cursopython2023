@@ -7,3 +7,9 @@ string = '1000'
 # print(string)
 # print(outra_variavel)
 print(string.zfill(10))
+ 
+nome = 'rondi'
+print(nome)
+nome = 'rondinelle'
+print(nome)
+ 
