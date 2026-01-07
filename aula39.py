@@ -6,14 +6,13 @@ Iterando strings com while
 #      1110987654321
 
 
-nome = 'Maria Helena'  # Iteráveis
+nome = 'Rondinelle Oliveira'  # Iteráveis
+i = 0
+espaco = '*'
 
-indice = 0
-novo_nome = ''
-while indice < len(nome):
-    letra = nome[indice]
-    novo_nome += f'*{letra}'
-    indice += 1
+while i <= (len(nome)-1):
+    letra = nome[i]
+    espaco += letra + '*'
+    i += 1
+print(espaco)
 
-novo_nome += '*'
-print(novo_nome)

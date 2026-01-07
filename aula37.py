@@ -12,7 +12,8 @@ while contador <= 100:
     if contador == 6:
         print('Não vou mostrar o 6.')
         continue
-
+        print('Não vou mostrar o 6.')
+ 
     if contador >= 10 and contador <= 27:
         print('Não vou mostrar o', contador)
         continue
