@@ -26,7 +26,7 @@ for letra in texto:
 
 print()
 
-texto = 'Rondi'
+texto = 'Rondi' # Iteravel
 iterador = texto.__iter__()  # iterator
 print(iterador.__next__())
 print(iterador.__next__())
@@ -35,3 +35,12 @@ print(iterador.__next__())
 print(iterador.__next__())
 print(iterador.__next__())
 
+print()
+
+texto = 'Luiz'  # iterável
+
+# iterador = iter(texto)  # iterator
+iterador = texto.__iter__()  # iterator
+
+while True:
+    print(next(iterador))
