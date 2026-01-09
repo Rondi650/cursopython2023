@@ -19,12 +19,16 @@ while True:
         continue
         
     if selecao == 'i':
+        os.system('cls')
         valor = input('Digite o item a ser adicionado: ')
         lista.append(valor)
         print(f'Item {valor} adicionado com sucesso')
     elif selecao == 'l':
+        os.system('cls')
+        if len(lista) == 0:
+            print('Nada para listar')
         for item in enumerate(lista):
-            indice, valor = item
+            indice, valor = item 
             print(indice, valor)
     else:
         apagar = input('Escolha o indice para apagar: ')

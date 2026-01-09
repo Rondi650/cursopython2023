@@ -15,7 +15,14 @@ salas = [
 # print(salas[2][2])
 # print(salas[2][3][3])
 
+print()
+
 for sala in salas:
     print(f'A sala é {sala}')
     for aluno in sala:
         print(aluno)
+        
+print()
+
+for sala in salas[2]:
+    print(sala)

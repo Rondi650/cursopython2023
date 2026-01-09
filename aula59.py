@@ -12,12 +12,18 @@ salas = [
     ['Luiz', 'João', 'Eduarda', ],  # 2
 ]
 
-# p, b, *_, ap, u = lista
-# print(p, u, ap)
+p, b, *_, ap, u = lista
+print(p, u, ap)
 
-# print('Maria', 'Helena', 1, 2, 3, 'Eduarda')
-# print(*lista)
-# print(*string)
-# print(*tupla)
+print('Maria', 'Helena', 1, 2, 3, 'Eduarda')
+print(*lista)
+print(*string)
+print(*tupla)
 
 print(*salas, sep='\n')
+
+print()
+
+nome = 'rondi'
+
+print(*nome)

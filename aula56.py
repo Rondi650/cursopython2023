@@ -6,9 +6,11 @@ join - une uma string
 frase = '   Olha só que   , coisa interessante          '
 lista_frases_cruas = frase.split(',')
 
-lista_frases = []
-for i, frase in enumerate(lista_frases_cruas):
-    lista_frases.append(lista_frases_cruas[i].strip())
+lista_frases: list[str] = []
+for frase in lista_frases_cruas:
+    frase_ajustada = frase.strip()
+    lista_frases.append(frase_ajustada)
+print(lista_frases)
 
 # print(lista_frases_cruas)
 # print(lista_frases)
