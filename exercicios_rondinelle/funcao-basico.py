@@ -16,3 +16,17 @@ teste = 5,5
 multi = multiplicar(*teste)
 retorno2 = par_impar(multi) 
 print(retorno2)
+
+prefixo = "Olá"
+
+'''SOBRE ESCOPO'''
+def saudacao(nome):
+    # Tenta LER prefixo ANTES de atribuir
+    global prefixo
+    resultado = f"{prefixo}, {nome}!"  # ❌ UnboundLocalError!
+    prefixo = "Oi"  # Mas tem atribuição embaixo...
+    return resultado
+
+print(saudacao("Luiz"))
+print(prefixo)
+# ❌ UnboundLocalError: local variable 'prefixo' referenced before assignment
