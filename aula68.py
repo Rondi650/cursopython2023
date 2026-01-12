@@ -27,3 +27,10 @@ def escopo():
 print(x)
 escopo()
 print(x)
+
+
+# def escopo():
+#     print(x)
+    
+# x = 1
+# escopo()
