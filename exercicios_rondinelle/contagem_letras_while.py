@@ -3,9 +3,9 @@ os.system('cls')
 
 texto = 'Me chamo Rondinelle e tenho 35 anos' 
 
-i = 0
-string_incial = ''
-valor_inicial = 0
+i: int = 0
+string_incial: str = ''
+valor_inicial: int = 0
 
 while i < len(texto):
     letra = texto[i]

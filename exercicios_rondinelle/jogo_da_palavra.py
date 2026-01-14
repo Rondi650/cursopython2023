@@ -18,9 +18,9 @@ Faça a contagem de tentativas do seu
 usuário.
 """
 
-palavra_secreta =  'carro'
-letras_acertadas = ''
-numero_tentativas = 0
+palavra_secreta: str =  'carro'
+letras_acertadas: str = ''
+numero_tentativas: int = 0
 
 while True:
     
