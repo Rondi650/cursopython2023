@@ -16,13 +16,18 @@ pessoa = {
     'sobrenome': 'Souza',
 }
 
+(a1, a2), (b1, b2) = pessoa.items()
+print(a1, a2)
+print(b1, b2)
+
 dados_pessoa = {
     'idade': 16,
     'altura': 1.6,
 }
 
+
 pessoas_completa = {**pessoa, **dados_pessoa}
-# print(pessoas_completa)
+print(pessoas_completa)
 
 # args e kwargs
 # args (já vimos)

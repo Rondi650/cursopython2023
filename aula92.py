@@ -11,7 +11,7 @@ def gen3():
     print('COMECOU GEN3')
     yield 10
     yield 20
-    yield 30
+    yield 30  
     print('ACABOU GEN3')
 
 
