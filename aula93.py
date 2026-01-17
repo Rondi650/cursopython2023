@@ -21,5 +21,7 @@ except (TypeError, IndexError) as error:
     print('Nome:', error.__class__.__name__)
 except Exception:
     print('ERRO DESCONHECIDO.')
+finally:
+    print('sera executado')
 
 print('CONTINUAR')

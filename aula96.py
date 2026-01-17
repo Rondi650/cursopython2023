@@ -2,7 +2,7 @@
 # https://docs.python.org/3/py-modindex.html
 # inteiro - import nome_modulo
 # Vantagens: você tem o namespace do módulo
-# Desvantagens: nomes grandes
+# # Desvantagens: nomes grandes
 # import sys
 
 # platform = 'A MINHA'
@@ -25,10 +25,9 @@
 
 
 # alias 2 - from nome_modulo import objeto as apelido
-# from sys import exit as ex
-# from sys import platform as pf
+from sys import exit as ex, platform as pf
 
-# print(pf)
+print(pf)
 
 # Vantagens: você pode reservar nomes para seu código
 # Desvantagens: pode ficar fora do padrão da linguagem

@@ -18,7 +18,16 @@
 # print(__name__)
 # fala_oi()
 
-from aula99_package import falar_oi, soma_do_modulo
+# from aula99_package import falar_oi, soma_do_modulo
+import aula99_package
 
-print(soma_do_modulo(2, 3))
-falar_oi()
+aula99_package.variavel
+print(aula99_package.variavel)
+print(aula99_package.soma_do_modulo(2, 3))
+aula99_package.falar_oi()
+
+# print(soma_do_modulo(2, 3))
+# falar_oi()
+
+nome = 'rondinelle'
+print(*nome, sep='*')
