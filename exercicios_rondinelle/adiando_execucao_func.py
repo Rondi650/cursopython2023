@@ -1,14 +1,16 @@
+from collections.abc import Callable
+
 # Exercício - Adiando execução de funções
-def soma(x, y):
+def soma(x: int, y: int) -> int:
     return x + y
 
 
-def multiplica(x, y):
+def multiplica(x: int, y: int):
     return x * y
 
 
-def criar_funcao(funcao, y):
-    def func_auxiliar(x):
+def criar_funcao(funcao: Callable[[int,int], int], y: int) -> Callable[[int], int]:
+    def func_auxiliar(x: int) -> int:
         return funcao(x,y)
     return func_auxiliar
 

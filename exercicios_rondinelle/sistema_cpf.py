@@ -26,10 +26,10 @@ O primeiro dígito do CPF é 7
 import os
 os.system('cls')
 
-cpf = '093780746'
-lista = [10, 9, 8, 7, 6, 5, 4, 3, 2]
-soma = 0
-contador_regressivo = 10
+cpf: str = '093780746'
+lista: list[int] = [10, 9, 8, 7, 6, 5, 4, 3, 2]
+soma: int = 0
+contador_regressivo: int = 10
 
 i = 0
 while i < len(cpf):

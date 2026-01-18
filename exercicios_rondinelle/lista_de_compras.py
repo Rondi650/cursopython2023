@@ -8,7 +8,7 @@ erros de índices inexistentes na lista.
 import os
 os.system('cls')
 
-lista = []
+lista: list[str] = []
 
 while True:
     selecao = input('Selecione uma opção\n\
