@@ -6,18 +6,14 @@
 
 def criar_funcao(func):
     def interna(*args, **kwargs):
-        print('Vou te decorar')
         for arg in args:
             e_string(arg)
-        resultado = func(*args, **kwargs)
-        print(f'O seu resultado foi {resultado}.')
-        print('Ok, agora você foi decorada')
-        return resultado
+        return func(*args, **kwargs)
     return interna
 
 
-def inverte_string(string):
-    return string[::-1]
+def inverte_string(*string):
+    return (i[::-1] for i in string)
 
 
 def e_string(param):
@@ -26,5 +22,6 @@ def e_string(param):
 
 
 inverte_string_checando_parametro = criar_funcao(inverte_string)
-invertida = inverte_string_checando_parametro('123')
-print(invertida)
+invertida = inverte_string_checando_parametro('rondinelle','samara')
+print(next(invertida))
+print(next(invertida))
