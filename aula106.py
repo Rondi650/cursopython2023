@@ -5,7 +5,7 @@ def parametros_decorador(nome):
 
         def sua_nova_funcao(*args, **kwargs):
             res = func(*args, **kwargs)
-            final = f'{res} {nome}'
+            final = str(res) + ' ' +  str(nome)
             return final
         return sua_nova_funcao
     return decorador
@@ -22,3 +22,4 @@ def soma(x, y):
 
 dez_mais_cinco = soma(10, 5)
 print(dez_mais_cinco)
+print(type(parametros_decorador(nome='5')))

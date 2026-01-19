@@ -44,14 +44,17 @@ def muda_preco_de_produtos(produto):
     }
 
 
-novos_produtos = list(map(
+novos_produtos = map(
     muda_preco_de_produtos,
     produtos
-))
+)
 
 
 print_iter(produtos)
 print_iter(novos_produtos)
+print(novos_produtos)
+print(type(novos_produtos))
+print(isinstance(novos_produtos, map))
 
 print(
     list(map(
@@ -59,3 +62,6 @@ print(
         [1, 2, 3, 4]
     ))
 )
+
+
+print('*','*'.join(list('rondi')),'*', sep='')

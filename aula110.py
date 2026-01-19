@@ -25,3 +25,15 @@ for chave, grupo in grupos:
     print(chave)
     for aluno in grupo:
         print(aluno)
+        
+print()
+print()
+print()
+
+alunos.sort(key=ordena)
+alunos_agrupados2 = groupby(alunos, key=ordena)
+
+for chave, grupo in alunos_agrupados2:
+    print(chave, list(grupo))
+    # for aluno in grupo:
+    #     print(aluno)

@@ -1,7 +1,9 @@
 # Decoradores com parâmetros
-def fabrica_de_decoradores(a=None, b=None, c=None):
+def fabrica_de_decoradores(a=None, b=None, c=None):\
+    
     def fabrica_de_funcoes(func):
         print('Decoradora 1')
+        print('nome da func:', func.__name__)
 
         def aninhada(*args, **kwargs):
             print('Parâmetros do decorador, ', a, b, c)
@@ -9,6 +11,7 @@ def fabrica_de_decoradores(a=None, b=None, c=None):
             res = func(*args, **kwargs)
             return res
         return aninhada
+    
     return fabrica_de_funcoes
 
 

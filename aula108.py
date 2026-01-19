@@ -19,3 +19,8 @@ print()
 print('range')
 for i in r1:
     print(i)
+
+
+contador = dir(range(0))
+contador2 = range(10)
+print(contador, contador2)

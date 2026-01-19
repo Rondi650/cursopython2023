@@ -30,3 +30,14 @@ novos_produtos = filter(
 
 print_iter(produtos)
 print_iter(novos_produtos)
+
+print(list('samara'))
+lista = ['s', 'a', 'm', 'a', 'r', 'a']
+print(*lista, sep='')
+
+nome = 'samara'
+
+novo = '*'
+for i in nome:
+    novo += i + '*'
+print(novo)
