@@ -6,15 +6,13 @@
 # - Um caso recursivo que resolve o pequeno problema
 # - Um caso base que para a recursão
 # - fatorial - n! = 5! = 5 * 4 * 3 * 2 * 1 = 120
-# https://brasilescola.uol.com.br/matematica/fatorial.htm
+# https://brasilescola.uol.com.br/matematica/fatorial.html
 # import sys
 
 # sys.setrecursionlimit(1004)
 
 
 # def recursiva(inicio=0, fim=4):
-
-#     print(inicio, fim)
 
 #     # Caso base
 #     if inicio >= fim:
@@ -26,15 +24,16 @@
 #     return recursiva(inicio, fim)
 
 
-# print(recursiva(0, 1001))
+# print(recursiva(0, 3))
 
 def factorial(n):
     if n <= 1:
         return 1
 
+    print(n, n-1, n*(n-1))
     return n * factorial(n - 1)
 
 
 print(factorial(5))
-print(factorial(10))
-print(factorial(100))
+# print(factorial(10))
+# print(factorial(100))
