@@ -7,6 +7,7 @@ def adiciona_clientes(nome, lista=None):
 
 
 cliente1 = adiciona_clientes('luiz')
+print(cliente1)
 adiciona_clientes('Joana', cliente1)
 adiciona_clientes('Fernando', cliente1)
 cliente1.append('Edu')
