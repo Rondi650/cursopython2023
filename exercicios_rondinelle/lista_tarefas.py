@@ -11,11 +11,13 @@
 
 import os
 import time
+import json
 os.system('cls')
 
 lista = []
 lista_reserva = []
 
+PATH = "C:\\Users\\rondi\\Desktop\\PROGRAMACAO\\PYTHON\\CURSO_OTAVIO_MIRANDA_COMPLETO\\cursopython2023\\exercicios_rondinelle\\"
 
 def sair(lista):
     lista.clear()
@@ -24,9 +26,21 @@ def sair(lista):
     time.sleep(1)
     os.system('cls')
     
-def limpar():
+def limpar(lista):
     os.system('cls')
     lista.pop()
+    salvar_dados(lista)
+    
+
+def salvar_dados(lista):
+    with open(file=PATH + 'dados_salvos.json', mode='w', encoding='utf-8') as arquivo:
+        retorno = json.dump(lista, arquivo, ensure_ascii=False, indent=4)
+        return retorno
+    
+def listar_dados():
+    with open(file=PATH+'dados_salvos.json', mode='r', encoding='utf-8') as arquivo:
+        retorno = json.load(arquivo)
+        return retorno
 
 def main():
     while True:
@@ -36,6 +50,7 @@ def main():
         if tarefa == 'desfazer':
             try:
                 desfazer = lista.pop()
+                salvar_dados(lista)
                 lista_reserva.append(desfazer)
             except IndexError:
                 ...
@@ -43,20 +58,24 @@ def main():
             try:
                 recarregar = lista_reserva[-1]
                 lista.append(recarregar)
+                salvar_dados(lista)
                 lista_reserva.pop()
             except IndexError:
                 ...
         else:
             lista.append(tarefa)
+            salvar_dados(lista)
         
         if tarefa == 'limpar':
-            limpar()
+            limpar(lista)
+            
             continue
         if tarefa == 'sair':
             sair(lista)
             break
         else:
             print()
+            print(listar_dados())
             for item in lista:
                 print(item)
 
