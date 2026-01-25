@@ -1,0 +1,17 @@
+[
+   {
+      "nome": "rondi",
+      "idade": 35,
+      "trabalhando": true
+   },
+   {
+      "nome": "samara",
+      "idade": 29,
+      "trabalhando": false
+   },
+   {
+      "nome": "heitor",
+      "idade": 8,
+      "trabalhando": false
+   }
+]

@@ -15,6 +15,7 @@ class Pessoa:
 
 
 p1 = Pessoa('Luiz', 'Otávio')
+print(type(p1))
 # p1.nome = 'Luiz'
 # p1.sobrenome = 'Otávio'
 
