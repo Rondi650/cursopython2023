@@ -38,4 +38,4 @@ class Foo:
 
 f = Foo()
 # print(f.public)
-print(f.metodo_publico())
+print(f.__metodo_private())

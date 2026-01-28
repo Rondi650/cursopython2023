@@ -20,20 +20,19 @@ class Escritor:
     def ferramenta(self, ferramenta):
         self._ferramenta = ferramenta
 
-
 class FerramentaDeEscrever:
-    def __init__(self, nome):
+    def __init__(self, nome, ideia):
         self.nome = nome
+        self.ideia = ideia
 
     def escrever(self):
-        return f'{self.nome} está escrevendo'
-
+        return f'{self.nome} {self.ideia} está escrevendo'
 
 escritor = Escritor('Luiz')
-caneta = FerramentaDeEscrever('Caneta Bic')
-maquina_de_escrever = FerramentaDeEscrever('Máquina')
+caneta = FerramentaDeEscrever('Caneta Bic', 'aasdasd')
+maquina_de_escrever = FerramentaDeEscrever('Máquina', 'xcvxcva')
+print(escritor.ferramenta.escrever())
 escritor.ferramenta = maquina_de_escrever
-
 print(caneta.escrever())
 print(maquina_de_escrever.escrever())
 print(escritor.ferramenta.escrever())

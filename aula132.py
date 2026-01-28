@@ -28,6 +28,8 @@ class Caneta:
 
     @cor_tampa.setter
     def cor_tampa(self, valor):
+        if valor == 'Azul':
+            raise ValueError('Deu Ruim')
         self._cor_tampa = valor
 
 

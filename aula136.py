@@ -7,9 +7,10 @@ class Cliente:
     def __init__(self, nome):
         self.nome = nome
         self.enderecos = []
+        self.endereco = Endereco
 
     def inserir_endereco(self, rua, numero):
-        self.enderecos.append(Endereco(rua, numero))
+        self.enderecos.append(self.endereco(rua, numero))
 
     def inserir_endereco_externo(self, endereco):
         self.enderecos.append(endereco)
@@ -19,7 +20,7 @@ class Cliente:
             print(endereco.rua, endereco.numero)
 
     def __del__(self):
-        print('APAGANDO,', self.nome)
+        print('APAGANDO CLIENTE,', self.nome)
 
 
 class Endereco:
@@ -28,7 +29,7 @@ class Endereco:
         self.numero = numero
 
     def __del__(self):
-        print('APAGANDO,', self.rua, self.numero)
+        print('APAGANDO ENDERECO,', self.rua, self.numero)
 
 
 cliente1 = Cliente('Maria')
@@ -40,6 +41,5 @@ cliente1.listar_enderecos()
 
 del cliente1
 
-
-print(endereco_externo.rua, endereco_externo.numero)
+print(' aaaaa ', endereco_externo.rua, endereco_externo.numero)
 print('######################## AQUI TERMINA MEU CÓDIGO')

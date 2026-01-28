@@ -8,19 +8,26 @@
 # se tratar de uma relação onde um objeto precisa de
 # outro para fazer determinada tarefa.
 # (existem controvérsias sobre as definições de agregação).
+
+class Produto:
+    def __init__(self, nome: str, preco: float):
+        self.nome = nome
+        self.preco = preco
+
 class Carrinho:
     def __init__(self):
-        self._produtos = []
+        self._produtos: list[Produto] = []
 
     def total(self):
         return sum([p.preco for p in self._produtos])
 
-    def inserir_produtos(self, *produtos):
-        # self._produtos.extend(produtos)
+    def inserir_produtos(self, *produtos: Produto):
+        print(produtos)
+        self._produtos.extend(produtos)
         # self._produtos += produtos
-        for produto in produtos:
-            self._produtos.append(produto)
-
+        # for produto in produtos:
+        #     self._produtos.append(produto)
+            
     def listar_produtos(self):
         print()
         for produto in self._produtos:
@@ -28,14 +35,18 @@ class Carrinho:
         print()
 
 
-class Produto:
-    def __init__(self, nome, preco):
-        self.nome = nome
-        self.preco = preco
-
-
 carrinho = Carrinho()
 p1, p2 = Produto('Caneta', 1.20), Produto('Camiseta', 20)
 carrinho.inserir_produtos(p1, p2)
 carrinho.listar_produtos()
 print(carrinho.total())
+
+
+
+
+lista = []
+
+valor = 1,2,3
+
+lista.extend(valor)
+print(lista)
