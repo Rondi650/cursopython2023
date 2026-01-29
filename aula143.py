@@ -14,6 +14,7 @@ class AbstractFoo(ABC):
 
     @property
     def name(self):
+        print('a')
         return self._name
 
     @name.setter
@@ -28,8 +29,8 @@ class Foo(AbstractFoo):
 
     @AbstractFoo.name.setter
     def name(self, name):
-        self._name = name
+        self._name = 123
 
 
-foo = Foo('Bar')
+foo = Foo('asdasd')
 print(foo.name)
