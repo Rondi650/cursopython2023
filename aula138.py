@@ -11,7 +11,7 @@
 class Pessoa:
     cpf = '1234'
 
-    def __init__(self, nome, sobrenome):
+    def __init__(self, nome: str, sobrenome: str):
         self.nome = nome
         self.sobrenome = sobrenome
 
@@ -21,9 +21,7 @@ class Pessoa:
 
 
 class Cliente(Pessoa):
-    def falar_nome_classe(self):
-        print('EITA, nem saí da classe CLIENTE')
-        print(self.nome, self.sobrenome, self.__class__.__name__)
+    ...
 
 
 class Aluno(Pessoa):
@@ -31,9 +29,5 @@ class Aluno(Pessoa):
     ...
 
 
-c1 = Cliente('Luiz', 'Otávio')
-c1.falar_nome_classe()
-a1 = Aluno('Maria', 'Helena')
-a1.falar_nome_classe()
-print(a1.cpf)
-# help(Cliente)
+c1 = Aluno('rondi', 'oliveira')
+print(c1.cpf, c1.nome, c1.sobrenome)
