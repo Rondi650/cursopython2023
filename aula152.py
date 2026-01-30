@@ -1,4 +1,5 @@
 # Funções decoradoras e decoradores com métodos
+from typing import Callable
 
 def meu_repr(self):
     class_name = self.__class__.__name__
@@ -12,13 +13,15 @@ def adiciona_repr(cls):
     return cls
 
 
-def meu_planeta(metodo):
-    def interno(self, *args, **kwargs):
-        resultado = metodo(self, *args, **kwargs)
+def meu_planeta(metodo: Callable):
+    print('ID da função ORIGINAL (metodo):', id(metodo)) # 68
 
-        if 'Terra' in resultado:
-            return 'Você está em casa'
-        return resultado
+    def interno(*args, **kwargs):
+        print('ID da função INTERNO (antes de retornar):', id(interno)) # 28
+        print('ID da função ORIGINAL chamada de dentro:', id(metodo)) # 68
+        return metodo(*args, **kwargs)
+
+    print('ID da função INTERNO (retornada):', id(interno)) # 28
     return interno
 
 
@@ -34,21 +37,21 @@ class Planeta:
         self.nome = nome
 
     @meu_planeta
-    def falar_nome(self):
+    def falar_nome(self): # 28
         return f'O planeta é {self.nome}'
 
 
 brasil = Time('Brasil')
 portugal = Time('Portugal')
 
-terra = Planeta('Terra')
+# terra = Planeta('Terra')
 marte = Planeta('Marte')
 
-print(brasil)
-print(portugal)
+# print(brasil)
+# print(portugal)
 
-print(terra)
-print(marte)
+# print(terra)
+# print(marte)
 
-print(terra.falar_nome())
+# print(terra.falar_nome())
 print(marte.falar_nome())
