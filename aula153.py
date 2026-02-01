@@ -14,3 +14,9 @@ class CallMe:
 call1 = CallMe('23945876545')
 retorno = call1('Luiz Otávio')
 print(retorno)
+
+teste = hasattr(CallMe, 'phone')
+print(teste)
+
+instancia = CallMe('999')
+print(hasattr(instancia, 'phone'))

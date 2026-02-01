@@ -1,4 +1,6 @@
 # Classes decoradoras (Decorator classes)
+from rich import print
+
 class Multiplicar:
     def __init__(self, multiplicador):
         self._multiplicador = multiplicador
@@ -10,10 +12,13 @@ class Multiplicar:
         return interna
 
 
-@Multiplicar(2)
+@Multiplicar(100)
 def soma(x, y):
     return x + y
 
 
 dois_mais_quatro = soma(2, 4)
 print(dois_mais_quatro)
+
+print(Multiplicar.__dict__)
+print(dir(Multiplicar))

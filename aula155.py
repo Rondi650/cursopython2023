@@ -41,6 +41,8 @@ class Meta(type):
 
     def __call__(cls, *args, **kwargs):
         instancia = super().__call__(*args, **kwargs)
+        print(instancia.__dict__)
+        print('##########', super())
 
         if 'nome' not in instancia.__dict__:
             raise NotImplementedError('Crie o attr nome')
@@ -54,11 +56,12 @@ class Pessoa(metaclass=Meta):
     def __new__(cls, *args, **kwargs):
         print('MEU NEW')
         instancia = super().__new__(cls)
+        print('##########', super())
         return instancia
 
     def __init__(self, nome):
         print('MEU INIT')
-        # self.nome = nome
+        self.nome = nome
 
     def falar(self):
         print('FALANDO...')
