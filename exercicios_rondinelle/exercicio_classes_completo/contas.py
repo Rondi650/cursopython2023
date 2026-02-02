@@ -8,7 +8,7 @@ class Conta(ABC):
         self._saldo: float = 0
 
     @property
-    def saldo(self):
+    def saldo(self) -> float:
         return self._saldo
 
     @saldo.setter

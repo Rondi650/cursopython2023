@@ -9,7 +9,9 @@ conta1 = ContaCorrente('123', '456', 500)
 conta1.depositar(500)
 conta1.depositar(300)
 conta1.sacar(1050)
-cliente1 = Cliente('rondi', 35, conta1)
+cliente1 = Cliente('rondi', 35)
+cliente1.conta = conta1
+print(cliente1.conta)
 cliente1._nome = 'joao'
 cliente1._nome = 'maria'
 autentica = Banco(cliente1, conta1, conta1)

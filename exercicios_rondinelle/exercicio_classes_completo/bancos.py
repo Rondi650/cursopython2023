@@ -1,5 +1,5 @@
-from contas import Conta # agencia, conta
-from clientes import Cliente # cliente
+from contas import Conta
+from clientes import Cliente 
 
 class Banco():
     def __init__(self, 

@@ -1,5 +1,5 @@
 from abc import ABC
-from contas import ContaCorrente, ContaPoupanca
+from contas import Conta
 
 
 class Pessoa():
@@ -12,32 +12,25 @@ class Pessoa():
         return self._nome
 
     @nome.setter
-    def nome(self, valor):
-        self._idade = valor
+    def nome(self, valor: str) -> None:
+        self._nome = valor
 
     @property
     def idade(self) -> int:
         return self._idade
 
     @idade.setter
-    def idade(self, valor):
+    def idade(self, valor: int) -> None:
         self._idade = valor
 
 
 class Cliente(Pessoa):
-    # contas: list[ContaCorrente | ContaPoupanca] = []
 
     def __init__(self,
                  nome: str,
-                 idade: int,
-                 conta: ContaCorrente | ContaPoupanca) -> None:
+                 idade: int) -> None:
         super().__init__(nome, idade)
-        self._conta = conta
-        # Cliente.contas.append(self._conta)
-
-    @property
-    def conta(self) -> ContaCorrente | ContaPoupanca:
-        return self._conta
+        self.conta: None | Conta = None
 
     def __repr__(self) -> str:
-        return f'Cliente: {self.nome} Idade:{self.idade} {self.conta}'
+        return f'Cliente: {self.nome} Idade:{self.idade}'
