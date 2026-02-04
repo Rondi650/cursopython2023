@@ -8,8 +8,12 @@
 # - Crie a data do final do empréstimo
 # - Mostre todas as datas de vencimento e o valor de cada parcela
 from datetime import datetime
+from rich import print
+import os
 
 from dateutil.relativedelta import relativedelta
+
+os.system('cls')
 
 valor_total = 1_000_000
 data_emprestimo = datetime(2020, 12, 20)

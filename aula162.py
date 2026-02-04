@@ -15,6 +15,7 @@ from datetime import datetime
 # from pytz import timezone
 
 data = datetime.now()
+print(data)
 print(data.timestamp())  # Isso está na base de dados
 print(datetime.fromtimestamp(1670849077))
 # data_str_data = '2022/04/20 07:49:23'
