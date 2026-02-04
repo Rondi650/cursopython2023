@@ -8,11 +8,11 @@ from collections.abc import Sequence
 
 class MyList(Sequence):
     def __init__(self):
-        self._data = {}
-        self._index = 0
-        self._next_index = 0
+        self._data: dict[int, str] = {}
+        self._index: int = 0
+        self._next_index: int = 0
 
-    def append(self, *values):
+    def append(self, *values: str):
         for value in values:
             self._data[self._index] = value
             self._index += 1
@@ -35,6 +35,7 @@ class MyList(Sequence):
             raise StopIteration
 
         value = self._data[self._next_index]
+        print(f'Aqui esta o valor {value}')
         self._next_index += 1
         return value
 

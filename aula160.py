@@ -19,19 +19,20 @@ class Carta(NamedTuple):
 #     'Carta', ['valor', 'naipe'],
 #     defaults=['VALOR', 'NAIPE']
 # )
-as_espadas = Carta('A')
+as_espadas = Carta('a')
 
-print(as_espadas._asdict())
 print(as_espadas)
-print(as_espadas[0])
-print(as_espadas.valor)
-print(as_espadas[1])
-print(as_espadas.naipe)
+print(type(as_espadas))
+# print(as_espadas)
+# print(as_espadas[0])
+# print(as_espadas.valor)
+# print(as_espadas[1])
+# print(as_espadas.naipe)
 
-print()
-print(as_espadas._fields)
-print(as_espadas._field_defaults)
+# print()
+# print(as_espadas._fields)
+# print(as_espadas._field_defaults)
 
 
-for valor in as_espadas:
-    print(valor)
+# for valor in as_espadas:
+#     print(valor)

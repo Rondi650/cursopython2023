@@ -1,6 +1,7 @@
 # Valores padrão e field em dataclasses
 # doc: https://docs.python.org/3/library/dataclasses.html
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, fields
+from rich import print
 
 
 @dataclass
@@ -15,5 +16,5 @@ class Pessoa:
 
 if __name__ == '__main__':
     p1 = Pessoa()
-    # print(fields(p1))
+    print(fields(p1))
     print(p1)
