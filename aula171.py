@@ -6,7 +6,11 @@
 import os
 from itertools import count
 
-caminho = os.path.join('/Users', 'luizotavio', 'Desktop', 'EXEMPLO')
+os.system('cls')
+
+caminho = os.path.join('/Users', 'rondi', 'Desktop', 'PROGRAMACAO', 
+                       'PYTHON', 'CURSO_OTAVIO_MIRANDA_COMPLETO', 
+                       'cursopython2023', 'exercicios_rondinelle')
 counter = count()
 
 for root, dirs, files in os.walk(caminho):
@@ -21,3 +25,12 @@ for root, dirs, files in os.walk(caminho):
         print('  ', the_counter, 'FILE:', caminho_completo_arquivo)
         # NÃO FAÇA ISSO (VAI APAGAR TUDO DA PASTA)
         # os.unlink(caminho_completo_arquivo)
+
+
+path2 = 'G:\\Meu Drive\\Pessoal'
+
+for arquivo in os.listdir(path2):
+    print(arquivo)
+    
+# path3 = 'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\
+    # CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula6.py'

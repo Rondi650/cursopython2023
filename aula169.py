@@ -15,15 +15,25 @@
 # os.path só trabalha com caminhos de arquivos e não faz nenhuma
 # operação de entrada/saída (I/O) com arquivos em si.
 import os
+os.system('cls')
 
 caminho = os.path.join('Desktop', 'curso', 'arquivo.txt')
-# print(caminho)
+print(caminho)
 diretorio, arquivo = os.path.split(caminho)
 nome_arquivo, extensao_arquivo = os.path.splitext(arquivo)
-# print(nome_arquivo, extensao_arquivo)
-# print(os.path.exists('/Users/luizotavio/Desktop/curso-python-rep'))
-# print(os.path.abspath('.'))
-print(caminho)
+print(nome_arquivo, extensao_arquivo)
+
+print(os.path.exists('C:\\Users\\rondi\\Desktop\\PROGRAMACAO\\PYTHON\\'
+    'CURSO_OTAVIO_MIRANDA_COMPLETO\\cursopython2023\\aula169.py'))
+
+print(os.path.abspath('.'))
+print(os.path.abspath(__file__))
 print(os.path.basename(caminho))
 print(os.path.basename(diretorio))
-print(os.path.dirname(caminho))
+print(os.path.dirname(os.path.abspath('.')))
+
+
+# emojio = '😒'
+
+# for _ in range(1, 10000):
+#     print(emojio, end='', sep='-')
