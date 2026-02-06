@@ -32,5 +32,8 @@ path2 = 'G:\\Meu Drive\\Pessoal'
 for arquivo in os.listdir(path2):
     print(arquivo)
     
+print(os.listdir(path2))
+print(type(os.listdir(path2)))
+    
 # path3 = 'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\
     # CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula6.py'

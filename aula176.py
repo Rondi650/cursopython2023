@@ -35,10 +35,9 @@ string_json = '''
 }
 '''
 filme: Movie = json.loads(string_json)
-# pprint(filme, width=40)
-# print(filme['title'])
-# print(filme['characters'][0])
-# print(filme['year'] + 10)
+print(filme, '\n')
+print(filme['title'])
 
-json_string = json.dumps(filme, ensure_ascii=False, indent=2)
-print(json_string)
+
+json_string = json.dumps(filme, ensure_ascii=False, indent=4)
+print('\n', json_string)

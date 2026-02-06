@@ -4,23 +4,38 @@
 import os
 import shutil
 
+os.system('cls')
+
 HOME = os.path.expanduser('~')
 DESKTOP = os.path.join(HOME, 'Desktop')
 PASTA_ORIGINAL = os.path.join(DESKTOP, 'EXEMPLO')
 NOVA_PASTA = os.path.join(DESKTOP, 'NOVA_PASTA')
 
+os.makedirs(PASTA_ORIGINAL, exist_ok=True)
 os.makedirs(NOVA_PASTA, exist_ok=True)
 
 for root, dirs, files in os.walk(PASTA_ORIGINAL):
     for dir_ in dirs:
-        caminnho_novo_diretorio = os.path.join(
+        caminho_novo_diretorio = os.path.join(
             root.replace(PASTA_ORIGINAL, NOVA_PASTA), dir_
         )
-        os.makedirs(caminnho_novo_diretorio, exist_ok=True)
+        os.makedirs(caminho_novo_diretorio, exist_ok=True)
 
     for file in files:
         caminho_arquivo = os.path.join(root, file)
-        caminnho_novo_arquivo = os.path.join(
+        print(caminho_arquivo)
+        caminho_novo_arquivo = os.path.join(
             root.replace(PASTA_ORIGINAL, NOVA_PASTA), file
         )
-        shutil.copy(caminho_arquivo, caminnho_novo_arquivo)
+        print(caminho_novo_arquivo)
+        shutil.copy(caminho_arquivo, caminho_novo_arquivo)
+
+
+# for dirpath, dirnames, filenames in os.walk(NOVA_PASTA):
+#     # print('dirpath ', dirpath)
+
+#     for _ in dirnames:
+#         print('dirname ', _)
+
+    # for _ in filenames:
+    #     print('filename ', _)
