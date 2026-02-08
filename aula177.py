@@ -11,7 +11,6 @@ CAMINHO_ABSOLUTO_ARQUIVO = os.path.abspath(os.path.join(
         NOME_ARQUIVO
     )
 )
-print(CAMINHO_ABSOLUTO_ARQUIVO)
 
 class Movie(TypedDict):
     title: str
@@ -21,7 +20,6 @@ class Movie(TypedDict):
     year: int
     characters: list[str]
     budget: None | float
-
 
 filme: Movie = {
     'title': 'O Senhor dos Anéis: A Sociedade do Anel',
