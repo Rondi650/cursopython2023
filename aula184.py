@@ -14,9 +14,8 @@
 # OBS.: sempre lembre-se de criar um .env-example
 import os
 
-from dotenv import load_dotenv  # type: ignore
-
+from dotenv import load_dotenv
 load_dotenv()
 
 # print(os.environ)
-print(os.getenv('BD_PASSWORD'))
+print(os.getenv('BD_PORT'))

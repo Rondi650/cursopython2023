@@ -5,6 +5,7 @@
 # safe_substitute: substitui sem gerar erros
 # Você também pode trocar o delimitador e outras coisas criando uma subclasse
 # de template.
+import json
 import locale
 import string
 from datetime import datetime
@@ -23,18 +24,25 @@ def converte_para_brl(numero: float) -> str:
 data = datetime(2022, 12, 28)
 dados = dict(
     nome='João',
-    valor=converte_para_brl(1_234_456),
+    valor=converte_para_brl(1_234_456.35),
     data=data.strftime('%d/%m/%Y'),
     empresa='O. M.',
     telefone='+55 (11) 7890-5432'
 )
 
+print(dados)
+
+print(json.dumps(dados, indent=4, ensure_ascii=False))
+
+texto_json = '{"id": null, "nome": "Teste"}'
+objeto = json.loads(texto_json) # Retorna um dicionário
+print(objeto)
 
 class MyTemplate(string.Template):
     delimiter = '%'
 
 
-with open(CAMINHO_ARQUIVO, 'r') as arquivo:
+with open(CAMINHO_ARQUIVO, 'r', encoding='utf8') as arquivo:
     texto = arquivo.read()
     template = MyTemplate(texto)
     print(template.substitute(dados))
