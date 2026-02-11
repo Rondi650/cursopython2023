@@ -8,12 +8,12 @@ parser = ArgumentParser()
 parser.add_argument(
     '-b', '--basic',
     help='Mostra "Olá mundo" na tela',
-    # type=str, # Tipo do argumento
+    type=str, # Tipo do argumento
     metavar='STRING',
-    # default='Olá mundo', # Valor padrão
+    default='Olá mundo', # Valor padrão
     required=False,
     action='append',  # Recebe o argumento mais de uma vez
-    # nargs='+', # Recebe mais de um valor
+    nargs='+', # Recebe mais de um valor
 )
 parser.add_argument(
     '-v', '--verbose',
