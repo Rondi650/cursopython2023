@@ -2,6 +2,7 @@
 # Selenium - Automatizando tarefas no navegador
 from pathlib import Path
 from time import sleep
+import os
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -15,11 +16,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 # Doc Selenium
 # https://selenium-python.readthedocs.io/locating-elements.html
 
+os.system('cls')
 
 # Caminho para a raiz do projeto
 ROOT_FOLDER = Path(__file__).parent
 # Caminho para a pasta onde o chromedriver está
-CHROME_DRIVER_PATH = ROOT_FOLDER / 'drivers' / 'chromedriver'
+CHROME_DRIVER_PATH = ROOT_FOLDER / 'drivers' / 'chromedriver.exe'
 
 
 def make_chrome_browser(*options: str) -> webdriver.Chrome:
@@ -51,19 +53,25 @@ if __name__ == '__main__':
     browser = make_chrome_browser(*options)
 
     # Como antes
-    browser.get('https://www.google.com')
+    browser.get('https://www.wikipedia.org')
 
     # Espere para encontrar o input
     search_input = WebDriverWait(browser, TIME_TO_WAIT).until(
         EC.presence_of_element_located(
-            (By.NAME, 'q')
+            (By.ID, 'searchInput')
         )
     )
-    search_input.send_keys('Hello World!')
+    search_input.send_keys('pikachgu')
     search_input.send_keys(Keys.ENTER)
 
-    results = browser.find_element(By.ID, 'search')
+    results = WebDriverWait(browser, TIME_TO_WAIT).until(
+        EC.presence_of_element_located(
+            (By.CLASS_NAME, 'mw-search-result-ns-0')
+        )
+    )
+
     links = results.find_elements(By.TAG_NAME, 'a')
+    print(links[0].get_attribute("href"))
     links[0].click()
 
     # Dorme por 10 segundos

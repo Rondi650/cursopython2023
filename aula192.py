@@ -8,11 +8,15 @@
 # + Instalação
 # - pip install requests types-requests bs4
 import re
+import os
+import http.server
+
+os.system('cls')
 
 import requests
 from bs4 import BeautifulSoup
 
-url = 'http://127.0.0.1:3333/'
+url = 'http://127.0.0.1:8000/'
 response = requests.get(url)
 bytes_html = response.content
 parsed_html = BeautifulSoup(bytes_html, 'html.parser', from_encoding='utf-8')
@@ -20,10 +24,11 @@ parsed_html = BeautifulSoup(bytes_html, 'html.parser', from_encoding='utf-8')
 # if parsed_html.title is not None:
 #     print(parsed_html.title.text)
 
-top_jobs_heading = parsed_html.select_one('#intro > div > div > article > h2')
+top_jobs_heading = parsed_html.select_one('#top-3 > div > div')
 
 if top_jobs_heading is not None:
     article = top_jobs_heading.parent
+    print(article)
 
     if article is not None:
         for p in article.select('p'):

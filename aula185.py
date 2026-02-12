@@ -45,3 +45,4 @@ with smtplib.SMTP(smtp_server, smtp_port) as server:
     server.login(smtp_username, smtp_password)
     server.send_message(mime_multipart)
     print('E-mail enviado com  sucesso!')
+    
