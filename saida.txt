@@ -437,6 +437,7 @@
    📂 Subpasta: bb
    📂 Subpasta: bc
    📂 Subpasta: bd
+   📂 Subpasta: bf
    📂 Subpasta: c0
    📂 Subpasta: c1
    📂 Subpasta: c2
@@ -519,6 +520,7 @@
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\09
    📄 Arquivo: 25ea52a21b4e7fb4485e5b686329de261ff7e9
    📄 Arquivo: 9889ba88c1da3c03b6db4e5a53e37b10fc138e
+   📄 Arquivo: a71481d34014de21f4fd944ca2492504e4cedd
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\0a
    📄 Arquivo: 74d02a311db529f5d29466c02c8ceae7481fd2
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\0c
@@ -684,6 +686,7 @@
    📄 Arquivo: 0cfb8aa963d9c80c82a722b592383c77a7fd22
    📄 Arquivo: b81661bad36e90d94efc71e5ffefa80137239c
    📄 Arquivo: caf2fdb142196ddd0abea9aea57c060e3c3c4a
+   📄 Arquivo: f5b7ecf3bea9a90b344a77f6815f0e56b195b1
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\5e
    📄 Arquivo: 5d99e9c937e73036a768061c63f73844dc3eac
    📄 Arquivo: 984eda7eab064dbdc82f66f2b8905042ffe554
@@ -715,6 +718,7 @@
    📄 Arquivo: 1a6ea4bf48a5d2b02f7835149017199fcf0794
    📄 Arquivo: 1fe92998674acbc3f5233e067a470fa046136b
    📄 Arquivo: 614dcd8ab80dd305049cc9695cebec81331758
+   📄 Arquivo: 6dbfa94a61bb86e218b0de2883633b0c1b8e0f
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\6d
    📄 Arquivo: 9377e7a335f07482538e6d5153502c87c510f1
    📄 Arquivo: a3af1f6e43f28a7e5fdf24f8c1b23be2a9916b
@@ -830,6 +834,7 @@
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\a0
    📄 Arquivo: 829752d33891aa51990231933a32343cd10ce3
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\a1
+   📄 Arquivo: 287616a560dbe97c359d42da4229afe31e3e17
    📄 Arquivo: b041bda5a247990b66ca8e4d1ea046e38727fc
    📄 Arquivo: bdcbd9abd03bb071455941ec5ef182c0dd7c06
    📄 Arquivo: cff64641fb82ab311e1c43a5b9d6c3c0b0dfbe
@@ -890,6 +895,8 @@
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\bd
    📄 Arquivo: 6042d8b6f88133eb41af0ebd3707dfce9a9a18
    📄 Arquivo: e1223ec6516bfc484d10288df3b09499bb4760
+📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\bf
+   📄 Arquivo: 749ead5dc4f47e1f98792e9eac3dfcd8fda5f6
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\c0
    📄 Arquivo: d581d0cebd099ed9ff96a3d335b873b778f0e4
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\c1
@@ -899,9 +906,11 @@
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\c2
    📄 Arquivo: 4048417e26df0a5081b34f69841b1bd3a32382
    📄 Arquivo: 61bcee99b34e96678ff15cca264e7ea8293c24
+   📄 Arquivo: e7d08178c4271b408bf03f4207abe6054fcfc0
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\c3
    📄 Arquivo: 313fe6a0797088e18d6ba26d2f52a377df2cb4
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\c4
+   📄 Arquivo: 490d24843c1f844d2da33d4eec782321891799
    📄 Arquivo: 68062d9b31db7c47df4c5a0aec5b565a19f016
    📄 Arquivo: b5869f3de268343b84c82204410ace8e24b31a
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\c5
@@ -924,6 +933,7 @@
    📄 Arquivo: ea27b4a19974918c2cefd752dfc3766787b2e5
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\cc
    📄 Arquivo: 4ef06eae50a46cd62fd3f79dc4fa79800cce7d
+   📄 Arquivo: 9da58a56234cddc87cd845a914236393394687
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\cf
    📄 Arquivo: 413763768b703f4dcc0fb94dcd776ceb69b163
    📄 Arquivo: a9130888287b47f04a489e9b27b1ea90e8e5d8
@@ -1012,6 +1022,7 @@
    📄 Arquivo: de140a7c8224c4d09d71f06eb44baf6011fba9
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\f5
    📄 Arquivo: 0f5c5e782eeb573f23d0be28ee524b86f6c16f
+   📄 Arquivo: 335c03f4a8f3b1857bdeeec7049022e2405f0a
    📄 Arquivo: 44a3a8cb8d74bc9f4a550cf60b9fc2e9742195
 📁 Pasta atual: C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\.git\objects\f7
    📄 Arquivo: 8d64f7707d8f7f633c5ec68560fedf3197e91a

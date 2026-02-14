@@ -78,41 +78,28 @@ import os
 
 os.system('cls')
 
-lista = [
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula1.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula2.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula3.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula4.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula5.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula6.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula7.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula8.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula9.py',
-    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula10.py',
-]
-
 PATH_ = r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023'
 
-with open('saida.txt', 'w', encoding='utf-8') as f:
-    for dirpath, dirnames, filenames in os.walk(PATH_):
-        f.write(f'📁 Pasta atual: {dirpath}\n')
+# with open('saida.txt', 'w', encoding='utf-8') as f:
+#     for dirpath, dirnames, filenames in os.walk(PATH_):
+#         f.write(f'📁 Pasta atual: {dirpath}\n')
 
-        for dirname in dirnames:
-            f.write(f'   📂 Subpasta: {dirname}\n')
+#         for dirname in dirnames:
+#             f.write(f'   📂 Subpasta: {dirname}\n')
 
-        for filename in filenames:
-            f.write(f'   📄 Arquivo: {filename}\n')
+#         for filename in filenames:
+#             f.write(f'   📄 Arquivo: {filename}\n')
 
-with open('saida_py1.txt', 'w', encoding='utf-8') as f:
-    for dirpath, dirnames, filenames in os.walk(PATH_):
-        if 'venv' in dirnames:
-            dirnames.remove('venv')
-        if 'django' in dirnames:
-            dirnames.remove('django')
+# with open('saida_py1.txt', 'w', encoding='utf-8') as f:
+#     for dirpath, dirnames, filenames in os.walk(PATH_):
+#         if 'venv' in dirnames:
+#             dirnames.remove('venv')
+#         if 'django' in dirnames:
+#             dirnames.remove('django')
 
-        for filename in filenames:
-            if filename.endswith('.py'):
-                f.write(f'{os.path.join(dirpath, filename)}\n')
+#         for filename in filenames:
+#             if filename.endswith('.py'):
+#                 f.write(f'{os.path.join(dirpath, filename)}\n')
 
 remover = ['aula119.py', 'aula194.py', 'aula15.py', 'aula16.py']
 
@@ -123,34 +110,63 @@ with open('saida_py2.txt', 'w', encoding='utf-8') as f:
             f.write(f'{os.path.join(PATH_, arquivo)}\n')
             i += 1
 
-# inicio1 = time.time()
-# processos: list[subprocess.Popen[bytes]] = []
+with open('saida_py2.txt', 'r', encoding='utf-8') as f:
+    lista = f.read().split('\n')
 
-# for i, caminho in enumerate(lista):
-#     print(caminho)
-#     p = subprocess.Popen(['python', caminho])
-#     processos.append(p)
+'''
+ASINCRONO FULL
+'''
 
-# for p in processos:
-#     p.wait()
+inicio1 = time.time()
+processos: list[subprocess.Popen[bytes]] = []
 
-# fim1 = time.time()
+for i, caminho in enumerate(lista):
+    print(caminho)
+    p = subprocess.Popen(['python', caminho])
+    processos.append(p)
 
-# print('#' * 100)
+for p in processos:
+    p.wait()
+
+fim1 = time.time()
+
+print(f'Tempo total com Popen: {fim1 - inicio1:.2f}s')
+
+
+'''
+SINCRONO
+'''
+
+inicio2 = time.time()
+
+for i, caminho in enumerate(lista):
+    print(f'Processo numero {i}')
+    print(caminho)
+    p = subprocess.run(['python', caminho])
+
+fim2 = time.time()
+
+print(f'Tempo total Sincrono: {fim2 - inicio2:.2f}s')
+
+
+'''
+ASINCRONO COM CONTROLE DE EXECUCAO
+'''
 
 def executar(caminho):
     subprocess.run(['python', caminho])
-    
+
 if __name__ == '__main__':
     with open('saida_py2.txt', 'r', encoding='utf-8') as f:
         lista = f.read().split('\n')
 
-    inicio = time.time()
+    inicio3 = time.time()
     
     with ProcessPoolExecutor(max_workers=5) as executor:
         executor.map(executar, lista)
         
-    fim = time.time()
+    fim3 = time.time()
     
-    print(f'Tempo total com ProcessPoolExecutor: {fim - inicio:.2f}s')
-# print(f'Tempo total com Popen: {fim1 - inicio1:.2f}s')
+    print(f'Tempo total com ProcessPoolExecutor: {fim3 - inicio3:.2f}s')
+
+
