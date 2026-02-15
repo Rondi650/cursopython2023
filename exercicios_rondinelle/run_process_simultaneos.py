@@ -1,4 +1,5 @@
-from concurrent.futures import ProcessPoolExecutor
+from asyncio import as_completed
+from concurrent.futures import ProcessPoolExecutor, as_completed
 import subprocess
 from pathlib import Path
 import time
@@ -36,7 +37,7 @@ arquivos_ignorados = ['aula119.py', 'aula194.py', 'aula15.py', 'aula16.py',
                       'aula20.py', 'aula196.py', 'aula22.py', 'aula24.py',
                       'aula28.py', 'aula29.py', 'aula32.py', 'aula34.py',
                       'aula40.py', 'aula47.py', 'aula54.py', 'aula63.py',
-                      'aula77.py', 'aula79.py']
+                      'aula77.py', 'aula79.py', 'aula196_1_threads.py']
 
 contador_arquivos = 0
 with open(DIRETORIO_SAIDAS / 'arquivos_python_principais.txt', 'w', encoding='utf-8') as arquivo_saida:
@@ -86,12 +87,11 @@ SINCRONO
 
 
 '''
-ASINCRONO COM CONTROLE DE EXECUCAO
+ASINCRONO COM CONTROLE DE EXECUCAO SUBMIT
 '''
 
-
-def executar_script(caminho_script):
-    subprocess.run(['python', caminho_script])
+def executar_script_submit(caminho_script):
+    subprocess.run(['python', caminho_script], capture_output=True)
 
 
 if __name__ == '__main__':
@@ -101,9 +101,32 @@ if __name__ == '__main__':
     tempo_inicio = time.time()
 
     with ProcessPoolExecutor(max_workers=5) as executor:
-        executor.map(executar_script, caminhos_scripts)
+        futures = []
+        for caminho in caminhos_scripts:
+            ex = executor.submit(executar_script_submit, caminho.strip())
+            futures.append(ex)
+            
+        for future in as_completed(futures):
+            future.result()
 
     tempo_fim = time.time()
 
     print(f'Tempo total com ProcessPoolExecutor: {tempo_fim - tempo_inicio:.2f}s')
+  
     
+'''
+ASINCRONO COM CONTROLE DE EXECUCAO MAP
+'''
+
+# def executar_script_map(caminho_script):
+#     subprocess.run(['python', caminho_script])
+
+# if __name__ == '__main__':
+#     tempo_inicio = time.time()
+
+#     with ProcessPoolExecutor(max_workers=5) as executor:
+#          executor.map(executar_script_map, caminhos_scripts)
+
+#     tempo_fim = time.time()
+
+#     print(f'Tempo total com ProcessPoolExecutor: {tempo_fim - tempo_inicio:.2f}s')

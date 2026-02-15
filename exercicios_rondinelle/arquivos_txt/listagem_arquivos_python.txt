@@ -108,6 +108,7 @@ C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopyt
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula194.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula195.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula196.py
+C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula196_1_threads.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula198.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula2.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula20.py
@@ -289,6 +290,7 @@ C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopyt
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\exercicios_rondinelle\multiplicador.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\exercicios_rondinelle\perguntas_respostas.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\exercicios_rondinelle\polimorfismo.py
+C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\exercicios_rondinelle\process_ia.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\exercicios_rondinelle\run_process_simultaneos.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\exercicios_rondinelle\sistema_cpf.py
 C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\exercicios_rondinelle\somando_duas_listas.py

@@ -3,97 +3,80 @@
 from threading import Lock, Thread
 from time import sleep
 
-"""
-class MeuThread(Thread):
-    def __init__(self, texto, tempo):
-        self.texto = texto
-        self.tempo = tempo
+'''CODIGO 1'''
 
-        super().__init__()
+# class MeuThread(Thread):
+#     def __init__(self, texto, tempo):
+#         self.texto = texto
+#         self.tempo = tempo
 
-    def run(self):
-        sleep(self.tempo)
-        print(self.texto)
+#         super().__init__()
 
-
-t1 = MeuThread('Thread 1', 5)
-t1.start()
-
-t2 = MeuThread('Thread 2', 3)
-t2.start()
-
-t3 = MeuThread('Thread 3', 2)
-t3.start()
-
-for i in range(20):
-    print(i)
-    sleep(1)
-"""
-
-"""
-def vai_demorar(texto, tempo):
-    sleep(tempo)
-    print(texto)
+#     def run(self):
+#         sleep(self.tempo)
+#         print(self.texto)
 
 
-t1 = Thread(target=vai_demorar, args=('Olá mundo 1!', 5))
-t1.start()
+# t1 = MeuThread('Thread 1', 5)
+# t1.start()
 
-t2 = Thread(target=vai_demorar, args=('Olá mundo 2!', 1))
-t2.start()
+# t2 = MeuThread('Thread 2', 3)
+# t2.start()
 
-t3 = Thread(target=vai_demorar, args=('Olá mundo 3!', 2))
-t3.start()
+# t3 = MeuThread('Thread 3', 2)
+# t3.start()
 
-for i in range(20):
-    print(i)
-    sleep(.5)
-"""
-
-
-"""
-def vai_demorar(texto, tempo):
-    sleep(tempo)
-    print(texto)
+# for i in range(20):
+#     print(i)
+#     sleep(1)
 
 
-t1 = Thread(target=vai_demorar, args=('Olá mundo 1!', 10))
-t1.start()
-t1.join()
+'''CODIGO 2'''
 
-print('Thread acabou!')
-"""
+# def vai_demorar1(texto, tempo):
+#     sleep(tempo)
+#     print(texto)
 
 
+# t1 = Thread(target=vai_demorar1, args=('Olá mundo 1!', 5))
+# t1.start()
+
+# t2 = Thread(target=vai_demorar1, args=('Olá mundo 2!', 1))
+# t2.start()
+
+# t3 = Thread(target=vai_demorar1, args=('Olá mundo 3!', 2))
+# t3.start()
+
+# for i in range(20):
+#     print(i)
+#     sleep(.5)
+
+# def vai_demorar2(texto, tempo):
+#     sleep(tempo)
+#     print(texto)
+
+'''CODIGO 3'''
+# t1 = Thread(target=vai_demorar2, args=('Olá mundo 1!', 2))
+# t1.start()
+# t1.join()
+
+# # while t1.is_alive():
+# #     print('Esperando a Thread')
+# #     sleep(2)
+
+# print('Thread acabou!')
+
+'''CODIGO 4'''
 class Ingressos:
-    """
-    Classe que vende ingressos
-    """
-
     def __init__(self, estoque: int):
-        """ Inicializando...
-
-        :param estoque: quantidade de ingressos em estoque
-        """
         self.estoque = estoque
-        # Nosso cadeado
         self.lock = Lock()
 
     def comprar(self, quantidade: int):
-        """
-        Compra determinada quantidade de ingressos
-
-        :param quantidade: A quantidade de ingressos que deseja comprar
-        :type quantidade: int
-        :return: Nada
-        :rtype: None
-        """
-        # Tranca o método
         self.lock.acquire()
-
+        
         if self.estoque < quantidade:
             print('Não temos ingressos suficientes.')
-            # Libera o método
             self.lock.release()
             return
 
@@ -103,7 +86,6 @@ class Ingressos:
         print(f'Você comprou {quantidade} ingresso(s). '
               f'Ainda temos {self.estoque} em estoque.')
 
-        # Libera o método
         self.lock.release()
 
 
