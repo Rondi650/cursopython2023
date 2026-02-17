@@ -3,8 +3,7 @@ import subprocess
 from pathlib import Path
 import time
 import os
-
-os.system('cls')
+from typing import Any
 
 MAX_WORKERS = 5
 TIMEOUT_SCRIPT = 20  # segundos
@@ -12,11 +11,11 @@ TIMEOUT_SCRIPT = 20  # segundos
 DIRETORIO_SAIDAS = Path(__file__).parent / 'arquivos_txt'
 os.makedirs(DIRETORIO_SAIDAS, exist_ok=True)
 
-with open(DIRETORIO_SAIDAS / 'arquivos_python_principais.txt', 'r', encoding='utf-8') as arquivo_entrada:
-    caminhos_scripts = arquivo_entrada.read().splitlines()
+# with open(DIRETORIO_SAIDAS / 'arquivos_python_principais.txt', 'r', encoding='utf-8') as arquivo_entrada:
+#     caminhos_scripts = arquivo_entrada.read().splitlines()
 
 
-def executar_script(caminho_script: str) -> dict:
+def executar_script(caminho_script: str) -> dict[str, Any]:
     inicio = time.perf_counter()
 
     try:
@@ -66,14 +65,18 @@ def main(caminhos_scripts: list[str]) -> None:
     falhas = 0
 
     with ProcessPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        futures: dict[Future[dict[str,str]], str] = {}
+        futures: dict[Future[dict[str, Any]], str] = {}
 
         for caminho in caminhos_scripts:
-            future: Future[dict[str,str]] = executor.submit(executar_script, caminho.strip())
+            future: Future[dict[str, Any]] = executor.submit(
+                executar_script, caminho.strip())
             futures[future] = caminho
+            print(futures)
+            print(future)
 
         for future in as_completed(futures):
             resultado = future.result()
+            print(resultado)
 
             if resultado["erro"]:
                 print(f"❌ {resultado['script']} | ERRO: {resultado['erro']}")
@@ -89,11 +92,15 @@ def main(caminhos_scripts: list[str]) -> None:
 
     tempo_total = time.perf_counter() - inicio_total
 
-    print("\n===== RELATÓRIO FINAL =====")
-    print(f"Sucesso: {sucesso}")
-    print(f"Falhas : {falhas}")
-    print(f"Tempo total: {tempo_total:.2f}s")
+    # print("\n===== RELATÓRIO FINAL =====")
+    # print(f"Sucesso: {sucesso}")
+    # print(f"Falhas : {falhas}")
+    # print(f"Tempo total: {tempo_total:.2f}s")
 
+
+caminhos_scripts = [
+    r'C:\Users\rondi\Desktop\PROGRAMACAO\PYTHON\CURSO_OTAVIO_MIRANDA_COMPLETO\cursopython2023\aula99.py']
 
 if __name__ == "__main__":
+    os.system('cls')
     main(caminhos_scripts)
