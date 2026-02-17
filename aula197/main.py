@@ -38,7 +38,7 @@ for i, page in enumerate(reader.pages):
         writer.add_page(page)
         writer.write(arquivo)  # type: ignore
 
-files = [PASTA_NOVA / 'page1.pdf',PASTA_NOVA / 'page2.pdf',]
+files = [PASTA_NOVA / 'page2.pdf',PASTA_NOVA / 'page1.pdf',]
 
 merger = PdfMerger()
 for file in files:
