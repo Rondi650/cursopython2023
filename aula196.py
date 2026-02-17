@@ -5,66 +5,69 @@ from time import sleep
 
 '''CODIGO 1'''
 
-# class MeuThread(Thread):
-#     def __init__(self, texto, tempo):
-#         self.texto = texto
-#         self.tempo = tempo
+class MeuThread(Thread):
+    def __init__(self, texto, tempo):
+        self.texto = texto
+        self.tempo = tempo
 
-#         super().__init__()
+        super().__init__()
 
-#     def run(self):
-#         sleep(self.tempo)
-#         print(self.texto)
+    def run(self):
+        sleep(self.tempo)
+        print(self.texto)
 
 
-# t1 = MeuThread('Thread 1', 5)
-# t1.start()
+t1 = MeuThread('Thread 1', 5)
+t1.start()
 
-# t2 = MeuThread('Thread 2', 3)
-# t2.start()
+t2 = MeuThread('Thread 2', 3)
+t2.start()
 
-# t3 = MeuThread('Thread 3', 2)
-# t3.start()
+t3 = MeuThread('Thread 3', 2)
+t3.start()
 
-# for i in range(20):
-#     print(i)
-#     sleep(1)
+for i in range(20):
+    print(i)
+    sleep(1)
 
 
 '''CODIGO 2'''
 
-# def vai_demorar1(texto, tempo):
-#     sleep(tempo)
-#     print(texto)
+def vai_demorar1(texto, tempo):
+    sleep(tempo)
+    print(texto)
 
 
-# t1 = Thread(target=vai_demorar1, args=('Olá mundo 1!', 5))
-# t1.start()
+t1 = Thread(target=vai_demorar1, args=('Olá mundo 1!', 5))
+t1.start()
 
-# t2 = Thread(target=vai_demorar1, args=('Olá mundo 2!', 1))
-# t2.start()
+t2 = Thread(target=vai_demorar1, args=('Olá mundo 2!', 1))
+t2.start()
 
-# t3 = Thread(target=vai_demorar1, args=('Olá mundo 3!', 2))
-# t3.start()
+t3 = Thread(target=vai_demorar1, args=('Olá mundo 3!', 2))
+t3.start()
 
-# for i in range(20):
-#     print(i)
-#     sleep(.5)
+for i in range(20):
+    print(i)
+    sleep(.5)
 
-# def vai_demorar2(texto, tempo):
-#     sleep(tempo)
-#     print(texto)
+
 
 '''CODIGO 3'''
-# t1 = Thread(target=vai_demorar2, args=('Olá mundo 1!', 2))
-# t1.start()
-# t1.join()
 
-# # while t1.is_alive():
-# #     print('Esperando a Thread')
-# #     sleep(2)
+def vai_demorar2(texto, tempo):
+    sleep(tempo)
+    print(texto)
+    
+t1 = Thread(target=vai_demorar2, args=('Olá mundo 1!', 2))
+t1.start()
+t1.join()
 
-# print('Thread acabou!')
+while t1.is_alive():
+    print('Esperando a Thread')
+    sleep(2)
+
+print('Thread acabou!')
 
 '''CODIGO 4'''
 class Ingressos:

@@ -8,6 +8,7 @@
 # Ative seu ambiente virtual
 # pip install pypdf2
 from pathlib import Path
+import os
 
 from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 
@@ -21,31 +22,23 @@ PASTA_NOVA.mkdir(exist_ok=True)
 
 reader = PdfReader(RELATORIO_BACEN)
 
-# print(len(reader.pages))
-# for page in reader.pages:
-#     print(page)
-#     print()
+print(len(reader.pages))
+for page in reader.pages:
+    print(page.extract_text())
+    print()
 
-page0 = reader.pages[0]
-imagem0 = page0.images[0]
-
-# print(page0.extract_text())
-# with open(PASTA_NOVA / imagem0.name, 'wb') as fp:
-#     fp.write(imagem0.data)
-
+for i, pagina in enumerate(reader.pages):
+    for imagem in pagina.images:
+        with open(os.path.join(PASTA_NOVA, f'Imagem{i+1}.png'), 'wb') as f:
+            f.write(imagem.data)
 
 for i, page in enumerate(reader.pages):
     writer = PdfWriter()
-    with open(PASTA_NOVA / f'page{i}.pdf', 'wb') as arquivo:
+    with open(PASTA_NOVA / f'page{i+1}.pdf', 'wb') as arquivo:
         writer.add_page(page)
         writer.write(arquivo)  # type: ignore
 
-
-files = [
-    PASTA_NOVA / 'page1.pdf',
-    PASTA_NOVA / 'page0.pdf',
-
-]
+files = [PASTA_NOVA / 'page1.pdf',PASTA_NOVA / 'page2.pdf',]
 
 merger = PdfMerger()
 for file in files:
@@ -53,3 +46,11 @@ for file in files:
 
 merger.write(PASTA_NOVA / 'MERGED.pdf')  # type: ignore
 merger.close()
+
+
+with PdfMerger() as merger:
+    for file in files:
+        merger.append(file)
+
+    with open(PASTA_NOVA / 'MERGED.pdf', 'wb') as arquivo:
+        merger.write(arquivo)
