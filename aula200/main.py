@@ -22,5 +22,5 @@ new_image.save(
     NEW_IMAGE,
     optimize=True,
     quality=70,
-    # exif=exif,
+    exif=exif,
 )

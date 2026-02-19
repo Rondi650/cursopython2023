@@ -1,9 +1,9 @@
 from concurrent.futures import Future, ProcessPoolExecutor, as_completed
+from typing import TypedDict, Optional
 import subprocess
 from pathlib import Path
 import time
 import os
-from typing import Any
 
 MAX_WORKERS = 5
 TIMEOUT_SCRIPT = 20  # segundos
@@ -15,7 +15,16 @@ os.makedirs(DIRETORIO_SAIDAS, exist_ok=True)
 #     caminhos_scripts = arquivo_entrada.read().splitlines()
 
 
-def executar_script(caminho_script: str) -> dict[str, Any]:
+class ResultadoExecucao(TypedDict):
+    script: str
+    returncode: Optional[int]
+    stdout: str
+    stderr: str
+    duracao: float
+    erro: Optional[str]
+
+
+def executar_script(caminho_script: str) -> ResultadoExecucao:
     inicio = time.perf_counter()
 
     try:
@@ -65,18 +74,19 @@ def main(caminhos_scripts: list[str]) -> None:
     falhas = 0
 
     with ProcessPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        futures: dict[Future[dict[str, Any]], str] = {}
+        futures: dict[Future[ResultadoExecucao], str] = {}
 
         for caminho in caminhos_scripts:
-            future: Future[dict[str, Any]] = executor.submit(
+            future: Future[ResultadoExecucao] = executor.submit(
                 executar_script, caminho.strip())
+            print(future.running())
             futures[future] = caminho
-            print(futures)
-            print(future)
+            print(future.running())
 
         for future in as_completed(futures):
+            print(future.result())
             resultado = future.result()
-            print(resultado)
+            print(future.running())
 
             if resultado["erro"]:
                 print(f"❌ {resultado['script']} | ERRO: {resultado['erro']}")

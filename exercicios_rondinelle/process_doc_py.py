@@ -11,7 +11,7 @@ URLS = ['http://www.foxnews.com/',
         'http://nonexistent-subdomain.python.org/']
 
 
-def load_url(url, timeout):
+def load_url(url, timeout) -> str:
     response = requests.get(url=url, timeout=timeout)
     return f'{url} → {response.content}'
 
@@ -21,7 +21,7 @@ with ThreadPoolExecutor(max_workers=5) as executor:
 
     for url in URLS:
         t1 = executor.submit(load_url, url, 60)
-        print(t1,'\n')
+        print(t1.__class__)
         future_to_url[t1] = url
 
     for future in as_completed(future_to_url):
