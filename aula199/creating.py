@@ -15,37 +15,32 @@ from openpyxl.worksheet.worksheet import Worksheet
 ROOT_FOLDER = Path(__file__).parent
 WORKBOOK_PATH = ROOT_FOLDER / 'workbook.xlsx'
 
-workbook = Workbook()
-# worksheet: Worksheet = workbook.active
+wb = Workbook()
 
-# Nome para a planilha
 sheet_name = 'Minha planilha'
-# Criamos a planilha
-workbook.create_sheet(sheet_name, 0)
-# Selecionou a planilha
-worksheet: Worksheet = workbook[sheet_name]
+wb.create_sheet(sheet_name, 0)
+ws: Worksheet = wb[sheet_name]
+print(wb.worksheets)
 
-# Remover uma planilha
-workbook.remove(workbook['Sheet'])
+wb.remove(wb['Sheet'])
 
-# Criando os cabeçalhos
-worksheet.cell(1, 1, 'Nome')
-worksheet.cell(1, 2, 'Idade')
-worksheet.cell(1, 3, 'Nota')
+ws.cell(1, 1, 'Nome')
+ws.cell(1, 2, 'Idade')
+ws.cell(1, 3, 'Nota')
 
 students = [
-    # nome      idade nota
-    ['João',    14,   5.5],
-    ['Maria',   13,   9.7],
-    ['Luiz',    15,   8.8],
-    ['Alberto', 16,   10],
+    ['João', 14, 5.5],
+    ['Maria', 13, 9.7],
+    ['Luiz', 15, 8.8],
+    ['Alberto', 16, 10],
+    ['Rondi', 35, 100],
 ]
 
-# for i, student_row in enumerate(students, start=2):
-#     for j, student_column in enumerate(student_row, start=1):
-#         worksheet.cell(i, j, student_column)
+for i, student_row in enumerate(students, start=2): #linha
+    for j, student_column in enumerate(student_row, start=1): #coluna
+        ws.cell(i, j, student_column)
 
 for student in students:
-    worksheet.append(student)
+    ws.append(student)
 
-workbook.save(WORKBOOK_PATH)
+wb.save(WORKBOOK_PATH)
