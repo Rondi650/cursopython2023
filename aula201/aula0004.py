@@ -19,8 +19,8 @@ central_widget = QWidget()
 window.setCentralWidget(central_widget)
 window.setWindowTitle('Minha janela bonita')
 
-botao1 = QPushButton('Texto do botão')
-botao1.setStyleSheet('font-size: 80px;')
+botao1 = QPushButton('Botão 1')
+botao1.setStyleSheet('font-size: 40px;')
 
 botao2 = QPushButton('Botão 2')
 botao2.setStyleSheet('font-size: 40px;')
@@ -48,9 +48,7 @@ status_bar.showMessage('Mostrar mensagem na barra')
 menu = window.menuBar()
 primeiro_menu = menu.addMenu('Primeiro menu')
 primeira_acao = primeiro_menu.addAction('Primeira ação')
-primeira_acao.triggered.connect(  # type:ignore
-    lambda: slot_example(status_bar)
-)
+primeira_acao.triggered.connect(lambda:slot_example(status_bar))
 
 
 window.show()

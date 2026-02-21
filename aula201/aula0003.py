@@ -7,8 +7,8 @@ from PySide6.QtWidgets import QApplication, QGridLayout, QPushButton, QWidget
 
 app = QApplication(sys.argv)
 
-botao = QPushButton('Texto do botão')
-botao.setStyleSheet('font-size: 80px;')
+botao = QPushButton('Botão 1')
+botao.setStyleSheet('font-size: 40px;')
 
 botao2 = QPushButton('Botão 2')
 botao2.setStyleSheet('font-size: 40px;')
@@ -22,8 +22,8 @@ layout = QGridLayout()
 central_widget.setLayout(layout)
 
 layout.addWidget(botao, 1, 1, 1, 1)
-layout.addWidget(botao2, 1, 2, 1, 1)
-layout.addWidget(botao3, 3, 1, 1, 2)
+layout.addWidget(botao2, 1, 2, 2, 1)
+layout.addWidget(botao3, 2, 1, 1, 1)
 
 central_widget.show()  # Central widget entre na hierarquia e mostre sua janela
 app.exec()  # O loop da aplicação

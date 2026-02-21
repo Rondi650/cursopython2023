@@ -1,9 +1,10 @@
 # O básico sobre Signal e Slots (eventos e documentação)
 import sys
 
-from PySide6.QtCore import Slot
+from PySide6.QtCore import Slot, SignalInstance
 from PySide6.QtWidgets import (QApplication, QGridLayout, QMainWindow,
                                QPushButton, QWidget)
+from PySide6.QtGui import QAction
 
 app = QApplication(sys.argv)
 window = QMainWindow()
@@ -41,10 +42,14 @@ def outro_slot(checked):
 
 
 @Slot()
-def terceiro_slot(action):
+def terceiro_slot(action: QAction):
     def inner():
         outro_slot(action.isChecked())
     return inner
+
+
+def quarto_slot(action: QAction):
+    print(action.isChecked())
 
 
 # statusBar
@@ -62,7 +67,7 @@ segunda_action.setCheckable(True)
 segunda_action.toggled.connect(outro_slot)  # type:ignore
 segunda_action.hovered.connect(terceiro_slot(segunda_action))  # type:ignore
 
-botao1.clicked.connect(terceiro_slot(segunda_action))  # type:ignore
+botao1.clicked.connect(lambda: quarto_slot(segunda_action))  # type:ignore
 
 window.show()
 app.exec()  # O loop da aplicação
