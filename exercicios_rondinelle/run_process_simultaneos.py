@@ -1,5 +1,5 @@
 from asyncio import as_completed
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor, as_completed, ThreadPoolExecutor
 import subprocess
 from pathlib import Path
 import time
@@ -90,6 +90,7 @@ SINCRONO
 ASINCRONO COM CONTROLE DE EXECUCAO SUBMIT
 '''
 
+
 def executar_script_submit(caminho_script):
     subprocess.run(['python', caminho_script], capture_output=True)
 
@@ -105,27 +106,29 @@ if __name__ == '__main__':
         for caminho in caminhos_scripts:
             ex = executor.submit(executar_script_submit, caminho.strip())
             futures.append(ex)
-            
+
         for future in as_completed(futures):
             future.result()
 
     tempo_fim = time.time()
 
     print(f'Tempo total com ProcessPoolExecutor: {tempo_fim - tempo_inicio:.2f}s')
-  
-    
+
+
 '''
 ASINCRONO COM CONTROLE DE EXECUCAO MAP
 '''
 
+
 def executar_script_map(caminho_script):
     subprocess.run(['python', caminho_script])
+
 
 if __name__ == '__main__':
     tempo_inicio = time.time()
 
     with ProcessPoolExecutor(max_workers=5) as executor:
-         executor.map(executar_script_map, caminhos_scripts)
+        executor.map(executar_script_map, caminhos_scripts)
 
     tempo_fim = time.time()
 

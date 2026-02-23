@@ -77,16 +77,14 @@ def main(caminhos_scripts: list[str]) -> None:
         futures: dict[Future[ResultadoExecucao], str] = {}
 
         for caminho in caminhos_scripts:
+            print(caminho)
             future: Future[ResultadoExecucao] = executor.submit(
                 executar_script, caminho.strip())
-            print(future.running())
             futures[future] = caminho
-            print(future.running())
 
         for future in as_completed(futures):
             print(future.result())
             resultado = future.result()
-            print(future.running())
 
             if resultado["erro"]:
                 print(f"❌ {resultado['script']} | ERRO: {resultado['erro']}")

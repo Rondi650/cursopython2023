@@ -51,7 +51,6 @@ def terceiro_slot(action: QAction):
 def quarto_slot(action: QAction):
     print(action.isChecked())
 
-
 # statusBar
 status_bar = window.statusBar()
 status_bar.showMessage('Mostrar mensagem na barra')
