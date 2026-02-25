@@ -2,7 +2,8 @@
 # https://doc.qt.io/qtforpython/tutorials/basictutorial/widgetstyling.html
 # Dark Theme
 # https://pyqtdarktheme.readthedocs.io/en/latest/how_to_use.html
-import qdarktheme
+import qdarkstyle
+from PySide6.QtWidgets import QApplication
 from variables import (DARKER_PRIMARY_COLOR, DARKEST_PRIMARY_COLOR,
                        PRIMARY_COLOR)
 
@@ -22,17 +23,9 @@ qss = f"""
 """
 
 
-def setupTheme():
-    qdarktheme.setup_theme(
-        theme='dark',
-        corner_shape='rounded',
-        custom_colors={
-            "[dark]": {
-                "primary": f"{PRIMARY_COLOR}",
-            },
-            "[light]": {
-                "primary": f"{PRIMARY_COLOR}",
-            },
-        },
-        additional_qss=qss
-    )
+def setupTheme(app: QApplication):
+    # Aplicar o estilo escuro do qdarkstyle
+    app.setStyleSheet(qdarkstyle.load_stylesheet_pyside6())
+
+    # Sobrepor com o QSS personalizado para estilização adicional
+    app.setStyleSheet(app.styleSheet() + qss)
