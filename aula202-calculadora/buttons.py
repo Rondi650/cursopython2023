@@ -36,7 +36,7 @@ class ButtonsGrid(QGridLayout):
             ['7', '8', '9', '*'],
             ['4', '5', '6', '-'],
             ['1', '2', '3', '+'],
-            ['N',  '0', '.', '='],
+            ['0', '.', '='],
         ]
         self.display = display
         self.info = info
@@ -74,7 +74,14 @@ class ButtonsGrid(QGridLayout):
                     button.setProperty('cssClass', 'specialButton')
                     self._configSpecialButton(button)
 
-                self.addWidget(button, rowNumber, colNumber)
+                if buttonText == '0':
+                    self.addWidget(button, rowNumber, colNumber, 1, 2)
+                elif buttonText in ['.', '=']:
+                    print(buttonText)
+                    self.addWidget(button, rowNumber, colNumber+1)
+                else:
+                    self.addWidget(button, rowNumber, colNumber)
+
                 slot = self._makeSlot(self._insertToDisplay, buttonText)
                 self._connectButtonClicked(button, slot)
 
@@ -104,7 +111,7 @@ class ButtonsGrid(QGridLayout):
 
     @Slot()
     def _makeSlot(self, func, *args, **kwargs):
-        @ Slot(bool)
+        @Slot(bool)
         def realSlot(_):
             func(*args, **kwargs)
         return realSlot
