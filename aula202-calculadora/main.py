@@ -35,6 +35,6 @@ if __name__ == '__main__':
  
     # Executa tudo
     # window.adjustFixedSize()
-    os.system('cls')
     window.show()
     app.exec()
+    os.system('clear')

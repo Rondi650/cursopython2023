@@ -84,6 +84,8 @@ class ButtonsGrid(QGridLayout):
 
                 slot = self._makeSlot(self._insertToDisplay, buttonText)
                 self._connectButtonClicked(button, slot)
+                print(buttonText)
+
 
     def _connectButtonClicked(self, button, slot):
         button.clicked.connect(slot)  # type: ignore
@@ -132,6 +134,9 @@ class ButtonsGrid(QGridLayout):
 
         if not isValidNumber(newDisplayValue):
             return
+
+        # Print the clicked button text to the terminal
+        print(text)
 
         self.display.insert(text)
         self.display.setFocus()
@@ -190,6 +195,8 @@ class ButtonsGrid(QGridLayout):
 
         self.display.clear()
         self.info.setText(f'{self.equation} = {result}')
+        # Print the total (result) to the terminal
+        print(result)
         self._left = result
         self._right = None
         self.display.setFocus()
