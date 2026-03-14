@@ -9,7 +9,8 @@ connection = sqlite3.connect(DB_FILE)
 cursor = connection.cursor()
 
 cursor.execute(
-    f'SELECT * FROM {TABLE_NAME}'
+    f'SELECT * FROM {TABLE_NAME} '
+    'WHERE name IN ("Samara","Maria")'
 )
 
 for row in cursor.fetchall():

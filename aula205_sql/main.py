@@ -1,6 +1,10 @@
+import os
 from curses.ascii import TAB
 import sqlite3
 from pathlib import Path
+from rich import print
+
+os.system('clear')
 
 ROOT_DIR = Path(__file__).parent
 DB_NAME = 'db.sqlite3'
@@ -53,32 +57,35 @@ connection.commit()
 
 # Forma correta
 # Com placeholders os valores sao passados posteriormente
-sql1 = (f'INSERT INTO {TABLE_NAME} (name, weight) '
+sql = (f'INSERT INTO {TABLE_NAME} (name, weight) '
     'VALUES '
     '(?,?)')
+print(sql)
 
-cursor.execute(sql1, ['Pedro',85]) # execute passa apenas 1 valor
+cursor.execute(sql, ['Pedro',85]) # execute passa apenas 1 valor
 connection.commit()
 
 ################################################################################
 
 # Forma correta com varios valores simultaneos em executemany
-sql2 = (f'INSERT INTO {TABLE_NAME} (name, weight) '
+sql = (f'INSERT INTO {TABLE_NAME} (name, weight) '
     'VALUES '
     '(?,?)')
+print(sql)
 
-cursor.executemany(sql2, [['Joao',75],['Maria',60]]) # Passa varios valores
+cursor.executemany(sql, [['Joao',75],['Maria',60]]) # Passa varios valores
 connection.commit()
 
 ################################################################################
 
 # Forma correta com dicionarios em execute (NAO O EXECUTEMANY)
-sql2 = (f'INSERT INTO {TABLE_NAME} (name, weight) '
+sql = (f'INSERT INTO {TABLE_NAME} (name, weight) '
     'VALUES '
     '(:name,:weight)')
+print(sql, end='\n\n')
 
 # cursor.execute(sql2, {'name':'Joana', 'weight': 55}) 
-cursor.executemany(sql2, (
+cursor.executemany(sql, (
     {'name':'Jurandir', 'weight': 82},
     {'name':'Sandra', 'weight': 98}
      ))
@@ -86,10 +93,32 @@ connection.commit()
 
 ################################################################################
 
-
-cursor.close()
-connection.close()
-
 if __name__ == '__main__':
-    print(sql1)
-    print(sql2)
+
+    # deletar com where 
+    cursor.execute(
+        f'DELETE FROM {TABLE_NAME} '
+        'WHERE id=3'
+    )
+
+    cursor.execute(
+        f'UPDATE {TABLE_NAME} '
+        'SET '
+        'name = "Rondinelle", '
+        'weight = 95 '
+        'WHERE id = 6'
+    )
+
+    connection.commit()
+
+    cursor.execute(
+    f'SELECT * FROM {TABLE_NAME}'
+    )
+
+    for row in cursor.fetchall():
+        print(*row)
+
+################################################################################
+
+    cursor.close()
+    connection.close()
