@@ -1,3 +1,4 @@
+from curses.ascii import TAB
 import sqlite3
 from pathlib import Path
 
@@ -9,7 +10,15 @@ TABLE_NAME = 'customers'
 connection = sqlite3.connect(DB_FILE)
 cursor = connection.cursor()
 
+cursor.execute(
+    f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
+    '( id INTEGER PRIMARY KEY AUTOINCREMENT,' 
+    'name TEXT,' 
+    'weight REAL'
+    ')'
+)
 
+connection.commit()
 
 cursor.close()
 connection.close()
