@@ -53,18 +53,40 @@ connection.commit()
 
 # Forma correta
 # Com placeholders os valores sao passados posteriormente
-sql = (f'INSERT INTO {TABLE_NAME} (name, weight) '
+sql1 = (f'INSERT INTO {TABLE_NAME} (name, weight) '
     'VALUES '
     '(?,?)')
 
-cursor.execute(sql, ['Pedro',85]) # execute passa apenas 1 valor
+cursor.execute(sql1, ['Pedro',85]) # execute passa apenas 1 valor
+connection.commit()
+
+################################################################################
+
+# Forma correta com varios valores simultaneos em executemany
+sql2 = (f'INSERT INTO {TABLE_NAME} (name, weight) '
+    'VALUES '
+    '(?,?)')
+
+cursor.executemany(sql2, [['Joao',75],['Maria',60]]) # Passa varios valores
+connection.commit()
+
+################################################################################
+
+# Forma correta com dicionarios em execute (NAO O EXECUTEMANY)
+sql2 = (f'INSERT INTO {TABLE_NAME} (name, weight) '
+    'VALUES '
+    '(:name,:weight)')
+
+# cursor.execute(sql2, {'name':'Joana', 'weight': 55}) 
+cursor.executemany(sql2, (
+    {'name':'Jurandir', 'weight': 82},
+    {'name':'Sandra', 'weight': 98}
+     ))
 connection.commit()
 
 ################################################################################
 
 
-
-################################################################################
 
 cursor.close()
 connection.close()
