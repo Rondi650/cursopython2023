@@ -33,6 +33,7 @@ cursor.execute(
 )
 cursor.execute(f'TRUNCATE TABLE {TABLE_NAME}')
 
+# inclusao de dados hardcoded
 cursor.execute(
     f'INSERT INTO {TABLE_NAME} '
     '(nome, idade) '
@@ -41,7 +42,54 @@ cursor.execute(
     '("samara", 28)'
 )
 
-connection.commit()
+# inclusao por tupla ou lista
+sql = (
+    f'INSERT INTO {TABLE_NAME} '
+    '(nome, idade) '
+    'VALUES '
+    '(%s,%s) '
+)
+print(sql)
 
+data1 = ["heitor", 8]
+
+cursor.execute(sql, data1)
+
+# inclusao por dicionario
+sql = (
+    f'INSERT INTO {TABLE_NAME} '
+    '(nome, idade) '
+    'VALUES '
+    '(%(name)s,%(age)s) '
+)
+print(sql)
+
+data2 = {
+    "name": "joao",
+    "age": 22
+}
+cursor.execute(sql, data2)
+
+# inclusao de varios valores por dicionario
+sql = (
+    f'INSERT INTO {TABLE_NAME} '
+    '(nome, idade) '
+    'VALUES '
+    '(%(name)s,%(age)s) '
+)
+print(sql)
+
+data2 = (
+    {"name": "joao","age": 22},
+    {"name": "maria","age": 15},
+    {"name": "ana","age": 18},
+    {"name": "sofia","age": 13},
+    )
+
+cursor.executemany(sql, data2)
+
+
+# padrao para todas consultas
+connection.commit()
 cursor.close()
 connection.close()
