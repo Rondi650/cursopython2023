@@ -6,6 +6,7 @@ from curses.ascii import TAB
 import os
 import dotenv
 import pymysql
+import pymysql.cursors
 
 TABLE_NAME = 'customers'
 
@@ -18,7 +19,8 @@ connection = pymysql.connect(
     host=os.environ['MYSQL_HOST'],
     user=os.environ['MYSQL_USER'],
     password=os.environ['MYSQL_PASSWORD'],
-    database=os.environ['MYSQL_DATABASE']
+    database=os.environ['MYSQL_DATABASE'],
+    cursorclass=pymysql.cursors.DictCursor
 )
 
 cursor = connection.cursor()
@@ -33,6 +35,8 @@ cursor.execute(
 )
 cursor.execute(f'TRUNCATE TABLE {TABLE_NAME}')
 
+################################################################################
+
 # inclusao de dados hardcoded
 cursor.execute(
     f'INSERT INTO {TABLE_NAME} '
@@ -41,6 +45,8 @@ cursor.execute(
     '("rondi",35), '
     '("samara", 28)'
 )
+
+################################################################################
 
 # inclusao por tupla ou lista
 sql = (
@@ -55,6 +61,8 @@ data1 = ["heitor", 8]
 
 cursor.execute(sql, data1)
 
+################################################################################
+
 # inclusao por dicionario
 sql = (
     f'INSERT INTO {TABLE_NAME} '
@@ -62,13 +70,15 @@ sql = (
     'VALUES '
     '(%(name)s,%(age)s) '
 )
-print(sql)
+print(sql, end='\n\n')
 
 data2 = {
     "name": "joao",
     "age": 22
 }
 cursor.execute(sql, data2)
+
+################################################################################
 
 # inclusao de varios valores por dicionario
 sql = (
@@ -77,7 +87,6 @@ sql = (
     'VALUES '
     '(%(name)s,%(age)s) '
 )
-print(sql)
 
 data2 = (
     {"name": "joao","age": 22},
@@ -88,8 +97,71 @@ data2 = (
 
 cursor.executemany(sql, data2)
 
+print(cursor.lastrowid)
+
+################################################################################
+
+# delete
+select_sql = (
+    f'DELETE FROM {TABLE_NAME} '
+    'WHERE id = %s'
+)
+print(select_sql)
+
+input_sql = [5]
+
+cursor.execute(select_sql, input_sql)
+# mogrify mostra o valor exato que esta indo para o banco
+print('mogrify', cursor.mogrify(select_sql, input_sql), end='\n\n')
+connection.commit()
+
+################################################################################
+
+# update
+select_sql = (
+    f'UPDATE {TABLE_NAME} '
+    'SET nome = %s '
+    'WHERE id = %s'
+)
+print(select_sql)
+
+input_sql = ['Rondinelle Oliveira',1]
+
+cursor.execute(select_sql, input_sql)
+# mogrify mostra o valor exato que esta indo para o banco
+print('mogrify', cursor.mogrify(select_sql, input_sql), end='\n\n')
+connection.commit()
+
+################################################################################
+
+# select
+select_sql = (
+    f'SELECT * FROM {TABLE_NAME} '
+    'WHERE id > %s AND id <= %s'
+)
+print(select_sql)
+
+input_sql = [1,100]
+
+cursor.execute(select_sql, input_sql)
+# mogrify mostra o valor exato que esta indo para o banco
+print('mogrify',cursor.mogrify(select_sql, input_sql), end='\n\n')
+
+retorno = cursor.fetchall()
+for row in retorno:
+    print(row)
+
+################################################################################
+
+# qtd de linhas afetadas pela consulta
+print(len(retorno))
+print(cursor.rowcount)
+retorno_sql = cursor.execute(select_sql, input_sql)
+print(retorno_sql)
+
+################################################################################
 
 # padrao para todas consultas
-connection.commit()
+
 cursor.close()
 connection.close()
